@@ -1,1 +1,1 @@
-changing to user betty
+print user
