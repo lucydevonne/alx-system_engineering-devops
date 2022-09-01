@@ -1,1 +1,1 @@
-change group owner to school
+change owner and group owner
