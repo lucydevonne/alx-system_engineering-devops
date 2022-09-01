@@ -1,1 +1,1 @@
-with permissions 751 in the working directory
+change owner to school
