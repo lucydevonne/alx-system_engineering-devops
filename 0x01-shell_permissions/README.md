@@ -1,1 +1,1 @@
-change owner and group owner
+only if owned
