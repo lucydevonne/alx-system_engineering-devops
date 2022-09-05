@@ -1,1 +1,1 @@
-hate bins
+lettersonly
