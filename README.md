@@ -1,1 +1,1 @@
-betty betty
+print hello world
