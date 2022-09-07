@@ -1,1 +1,1 @@
-count no of directories
+printenv variables
