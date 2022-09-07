@@ -1,1 +1,1 @@
-printenv variables
+list variables and fns
