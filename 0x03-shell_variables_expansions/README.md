@@ -1,1 +1,1 @@
-path to success
+count no of directories
