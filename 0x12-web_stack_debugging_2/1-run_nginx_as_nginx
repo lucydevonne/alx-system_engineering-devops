@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Stop Nginx if it's already running
+# Change Nginx user to nginx
+# Listen on all active IPs on port 8080
+# Start Nginx
+
+sudo systemctl stop nginx
+
+sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
+
+sudo systemctl start nginx

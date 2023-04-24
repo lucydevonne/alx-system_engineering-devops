@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#short ver of task1
+
+sudo systemctl stop nginx
+sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
+sudo systemctl start nginx
