@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Write a Python script that, using this REST API, for a given employee ID, 
+Write a Python script that, using this REST API, for a given employee ID,
 returns information about his/her TODO list progress.
 """
 
@@ -49,5 +49,3 @@ def get_employee_todo_progress(employee_id):
 if __name__ == "__main__":
     employee_id = int(sys.argv[1])
     get_employee_todo_progress(employee_id)
-
-
