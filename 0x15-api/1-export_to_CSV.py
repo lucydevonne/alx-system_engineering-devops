@@ -49,11 +49,11 @@ def get_employee_todo_progress(employee_id):
     # Write data in CSV
     csv_filename = "employee_{}_todo.csv".format(employee_id)
     with open(csv_filename, mode='w', newline='') as csv_file:
-       fieldnames = ['userId', 'task', 'completed']
-       writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-       writer.writeheader()
-       for task in todo_list:
-           writer.writerow({
+        fieldnames = ['userId', 'task', 'completed']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for task in todo_list:
+            writer.writerow({
                'userId': task['userId'],
                'task': task['title'],
                'completed': task['completed']
