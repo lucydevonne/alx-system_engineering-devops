@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-A script that uses the JSONPlaceholder API to retrieve information about a given employee's
+Script using JSONPlaceholder API to retrieve info about a given employee's
 TODO list progress and save it to a CSV file.
 """
 
@@ -30,7 +30,8 @@ def get_employee_todo_progress(employee_id):
     employee_name = employee_response.json()["name"]
 
     # Retrieve employee's TODO list by ID
-    todo_response = requests.get("{}/todos".format(url), params={"userId": employee_id})
+    todo_response = requests.get(url + "/todos",
+                                 params={"userId": employee_id})
     todos = todo_response.json()
     total_tasks = len(todos)
     done_tasks = sum(1 for todo in todos if todo["completed"])
