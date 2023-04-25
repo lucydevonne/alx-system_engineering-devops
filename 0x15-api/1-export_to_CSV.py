@@ -43,10 +43,12 @@ def get_employee_todo_progress(employee_id):
     num_completed_tasks = len(completed_tasks)
 
     # Print progress report
-    print("Employee {} is done with tasks({}/{}):".format(
-        employee_name, num_completed_tasks, total_tasks))
+    print("Employee ID: {}".format(employee_id))
+    print("Employee Name: {}".format(employee_name))
+    print("Employee Username: {}".format(employee_username))
+    print("Tasks Completed ({}/{}):".format(num_completed_tasks, total_tasks))
     for task in completed_tasks:
-        print("\t{}".format(task['title']))
+        print("\t- {}".format(task['title']))
 
     # Write data in CSV
     csv_filename = "employee_{}_todo.csv".format(employee_id)
