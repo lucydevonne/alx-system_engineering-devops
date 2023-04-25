@@ -57,7 +57,7 @@ def get_employee_todo_progress(employee_id):
                'userId': task['userId'],
                'task': task['title'],
                'completed': task['completed']
-           })
+            })
 
 
 
