@@ -47,10 +47,11 @@ def get_employee_todo_progress(employee_id):
         print("\t{}".format(task['title']))
 
     # Export progress report to CSV file
-    with open("employee{}_todo.csv".format(employee_id), 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(["Employee Name", "Total Tasks", "Completed Tasks"])
-        writer.writerow([employee_name, total_tasks, num_completed_tasks])
+    print("Employee {} is done with tasks ({}/{}):".format(
+    employee_name,
+    num_completed_tasks,
+    total_tasks))
+
 
 
 if __name__ == "__main__":
