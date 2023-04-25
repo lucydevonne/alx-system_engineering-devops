@@ -30,6 +30,8 @@ def get_employee_todo_progress(employee_id):
     user_response = requests.get(user_url)
     user_info = user_response.json()
     employee_name = user_info['name']
+    employee_username = user_info['username']
+    employee_id = user_info['id']
 
     # Get user's to-do list by ID
     todo_url = "{}/todos".format(url_base)
