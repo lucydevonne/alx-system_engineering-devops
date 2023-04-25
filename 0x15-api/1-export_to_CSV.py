@@ -1,8 +1,19 @@
 #!/usr/bin/python3
 
 """
-Write a Python script that, using this REST API, for a given employee ID,
-returns information about his/her TODO list progress.
+This Python script retrieves information about a given employee's TODO list progress
+using the REST API provided by https://jsonplaceholder.typicode.com.
+
+Usage:
+    $ python3 employee_todo.py <employee_id>
+
+Arguments:
+    employee_id (int): The ID of the employee to retrieve information for.
+
+Format:
+    Records all tasks that are owned by this employee
+    Format must be: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
+    File name must be: USER_ID.csv
 """
 
 import csv
@@ -51,18 +62,19 @@ def get_employee_todo_progress(employee_id):
     # Write data in CSV
     csv_filename = "{}.csv".format(employee_id)
     with open(csv_filename, mode='w', newline='') as csv_file:
-        fieldnames = ['USER_ID', 'USERNAME', '
-                TASK_COMPLETED_STATUS', 'TASK_TITLE']
+        fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS',
+                     'TASK_TITLE']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
         for task in todo_list:
             writer.writerow({
                'USER_ID': task['userId'],
-               'USERNAME': employee_username'
-               'TASK_COMPLETED_STATUS' : task['completed']
-               'TASK_TITLE': task['title]
+               'USERNAME': employee_username,
+               'TASK_COMPLETED_STATUS' : task['completed'],
+               'TASK_TITLE': task['title']
             })
 
 if __name__ == "__main__":
     employee_id = int(sys.argv[1])
     get_employee_todo_progress(employee_id)
+
