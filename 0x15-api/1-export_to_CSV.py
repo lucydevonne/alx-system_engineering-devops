@@ -42,11 +42,18 @@ def get_employee_todo_progress(employee_id):
         employee_id, len([task for task in todo_list if task['completed']]), len(todo_list)))
 
     # Write data in CSV
-    csv_filename = "employee_{}.csv".format(employee_id)
+    csv_filename = "{}.csv".format(employee_id)
     with open(csv_filename, mode='w', newline='') as csv_file:
-        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+        fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
         for task in todo_list:
-            writer.writerow([employee_id, employee_username, task['completed'], task['title']])
+            writer.writerow({
+                 'USER_ID': task['userId'],
+                 'USERNAME': employee_username,
+                 'TASK_COMPLETED_STATUS': task['completed'],
+                 'TASK_TITLE': task['title']
+            })
 
 
 if __name__ == "__main__":
