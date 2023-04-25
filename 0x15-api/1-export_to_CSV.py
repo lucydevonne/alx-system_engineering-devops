@@ -5,8 +5,8 @@ Write a Python script that, using this REST API, for a given employee ID,
 returns information about his/her TODO list progress.
 """
 
-import csv
 import requests
+import csv
 import sys
 
 
@@ -42,15 +42,25 @@ def get_employee_todo_progress(employee_id):
 
     # Print progress report
     print("Employee {} is done with tasks ({}/{}):".format(
-        employee_name, num_completed_tasks, total_tasks))
+        employee_name,
+        num_completed_tasks,
+        total_tasks
+    ))
     for task in completed_tasks:
         print("\t{}".format(task['title']))
 
-    # Export progress report to CSV file
-    print("Employee {} is done with tasks ({}/{}):".format(
-    employee_name,
-    num_completed_tasks,
-    total_tasks))
+    # Write data to CSV file
+csv_filename = "employee_{}_todo.csv".format(employee_id)
+with open(csv_filename, mode='w', newline='') as csv_file:
+    fieldnames = ['userId', 'task', 'completed']
+    writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+    writer.writeheader()
+    for task in todo_list:
+        writer.writerow({
+            'userId': task['userId'],
+            'task': task['title'],
+            'completed': task['completed']
+        })
 
 
 
