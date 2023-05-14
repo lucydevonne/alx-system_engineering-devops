@@ -13,10 +13,7 @@ service { 'apache2':
 }
 
 # Use strace to find the issue causing the 500 error and fix it
-exec { 'fix-apache':
-  command     => 'strace -p $(pgrep apache2) -f -e trace=file 2>&1 | grep --color=never "/etc/apache2/"',
-  path        => ['/bin', '/sbin', '/usr/bin', '/usr/sbin'],
-  logoutput   => true,
-  notify      => Service['apache2'],
-  refreshonly => true,
+exec { 'fix the php file  extension':
+  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
+  path    => '/usr/local/bin/:/bin/'
 }
